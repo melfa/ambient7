@@ -1,0 +1,4 @@
+#!/bin/bash
+
+java -jar ambient7-mt8057-agent-0.1.0.jar --writers console | ./http_push
+

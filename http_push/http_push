@@ -1,0 +1,10 @@
+pushUrl="http://www33.lan:29618/telegram/air/index?ppm="
+
+while read line; do
+	air=$(echo "$line" | awk '$3 ~ /^co2/ {sub(/^co2=/, "", $3); print $3;}' )
+	if [ "x$air" != x ]; then
+		echo $air
+		curl "$pushUrl$air"
+	fi
+done
+
